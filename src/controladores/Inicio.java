@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import servicios.FicheroImplementacion;
+import servicios.FicheroInterfaz;
 import servicios.MenuImplementacion;
 import servicios.MenuInterfaz;
 
@@ -15,6 +17,7 @@ public class Inicio {
 
 	public static void main(String[] args) {
 		MenuInterfaz mi = new MenuImplementacion();
+		FicheroInterfaz fi= new FicheroImplementacion();
 		boolean cerrarMenu = false;
 		int opc;
 		do {
@@ -36,24 +39,13 @@ public class Inicio {
 
 				}
 			} catch (Exception e) {
-				ficheroLog(e);
+				fi.ficheroLog(e);
 
 			}
 		} while (!cerrarMenu);
 
 	}
 
-	public static void ficheroLog(Exception e) {
-		try {
-			BufferedWriter escribe = new BufferedWriter(new FileWriter(rutaCompletaLog, true));
-
-			escribe.write(e.getMessage());
-
-			escribe.close();
-		} catch (IOException e1) {
-
-			System.out.println(e);
-		}
-	}
+	
 
 }
