@@ -2,6 +2,6 @@ package servicios;
 
 public interface FicheroInterfaz {
 
-	public void ficheroLog(Exception e);
+	public void ficheroLog(String mensaje);
 
 }
